@@ -3,19 +3,19 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.10.4.tar.gz"
-  sha256 "da70c5cbaf5580b8987e9fcabda8e51ee8e00b5dc263cfa6f8b994c485169bd0"
+  url "https://github.com/aws/aws-cli/archive/2.11.2.tar.gz"
+  sha256 "32781ceee49ddfab57ccb228f5b78ca998003a50017fa2fad4607f05c9b345a1"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ff4d98b287825f1d43e75a693e8d6287a904ff37ddd20233dd35d037de9bfc29"
-    sha256 cellar: :any,                 arm64_monterey: "136486ed80af0224173168115675eff3e352d071d75e01c66a0ff8df4816b1dd"
-    sha256 cellar: :any,                 arm64_big_sur:  "b7f33b169a4c249b5abcaebb1b254e77cf2b1df6b1be795e65a839bfc2f64ad5"
-    sha256 cellar: :any,                 ventura:        "8576e0661ff2083217131b004ea40374a35b6d2e62637af2c8222b455639a73b"
-    sha256 cellar: :any,                 monterey:       "28f5ee3a11700d96d44b7540fd4f4ddb05868c8de53598bd75e9e2b0d80ab021"
-    sha256 cellar: :any,                 big_sur:        "2b2222132bef790d2b7f4036211b9254b4fc49c0079ff8a966e62fa4d7786ee9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4373788a2ae6df127b153d2c54e16d66cb5ec99ec6e65f117bc90bf3b01b2028"
+    sha256 cellar: :any,                 arm64_ventura:  "9a4c2f9fa600b38c26a3bca30bf6cfae7ff21c953f8a58073de8e0913128eb74"
+    sha256 cellar: :any,                 arm64_monterey: "4c0dd5b9a460f405fc184dd263ab5c7a6b6b8d0458b99a8fa2933a8d620bf577"
+    sha256 cellar: :any,                 arm64_big_sur:  "5005e97ba038755e0a67e2acc79694491b0a23547951d31aa59d111499c58e3f"
+    sha256 cellar: :any,                 ventura:        "08e98d62e1ce2f76c2c10d08dcf9b290274bfb7ab5c64a423f0da40a2613f1f7"
+    sha256 cellar: :any,                 monterey:       "ab8212651d17e0261095d58ee914e346f77e771fb616a449c45b33a41b4a1b7a"
+    sha256 cellar: :any,                 big_sur:        "597ad0826d7c5d5a612e20b5788b988f75571d73ee7a6f9a92911a9dcdad1520"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d906a6e20e9744f4eea9feaa4af40af67f3b1e2734c06d16334315ae3ff3650"
   end
 
   depends_on "cmake" => :build
@@ -31,8 +31,8 @@ class Awscli < Formula
   # 2. Ignore `docutils` and `six`. Update all other PyPI packages
 
   resource "awscrt" do
-    url "https://files.pythonhosted.org/packages/ae/98/dda092078f2d47bad08e184ab9d364b8f89166497062bc1cf811c0bbbde2/awscrt-0.16.10.tar.gz"
-    sha256 "3101499b479b82f0403f615bf520c1f8b9506818d275e3e28ade25cc6bcdb92b"
+    url "https://files.pythonhosted.org/packages/a2/90/c59a1be4b9978331f363370c991a7ab766aef207adafadcdbd52899c4da2/awscrt-0.16.11.tar.gz"
+    sha256 "39b5b98e28e1e4004f332abed2d6cbbb8679b580588ea857a453eccf729c9761"
   end
 
   resource "cffi" do
@@ -46,8 +46,8 @@ class Awscli < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/e3/3f/41186b1f2fd86a542d399175f6b8e43f82cd4dfa51235a0b030a042b811a/cryptography-38.0.4.tar.gz"
-    sha256 "175c1a818b87c9ac80bb7377f5520b7f31b3ef2a0004e2420319beadedb67290"
+    url "https://files.pythonhosted.org/packages/fa/f3/f4b8c175ea9a1de650b0085858059050b7953a93d66c97ed89b93b232996/cryptography-39.0.2.tar.gz"
+    sha256 "bc5b871e977c8ee5a1bbc42fa8d19bcc08baf0c51cbf1586b0e87a2694dde42f"
   end
 
   resource "distro" do
@@ -78,6 +78,11 @@ class Awscli < Formula
   resource "ruamel-yaml" do
     url "https://files.pythonhosted.org/packages/46/a9/6ed24832095b692a8cecc323230ce2ec3480015fbfa4b79941bd41b23a3c/ruamel.yaml-0.17.21.tar.gz"
     sha256 "8b7ce697a2f212752a35c1ac414471dc16c424c9573be4926b56ff3f5d23b7af"
+  end
+
+  resource "ruamel-yaml-clib" do
+    url "https://files.pythonhosted.org/packages/d5/31/a3e6411947eb7a4f1c669f887e9e47d61a68f9d117f10c3c620296694a0b/ruamel.yaml.clib-0.2.7.tar.gz"
+    sha256 "1f08fd5a2bea9c4180db71678e850b995d2a5f4537be0e94557668cf0f5f9497"
   end
 
   resource "urllib3" do

@@ -1,19 +1,19 @@
 class Qsv < Formula
   desc "Ultra-fast CSV data-wrangling toolkit"
   homepage "https://github.com/jqnatividad/qsv"
-  url "https://github.com/jqnatividad/qsv/archive/refs/tags/0.90.1.tar.gz"
-  sha256 "c144e64fbb0650518e1bd37926ede565d467c5bd5ad4d78f46543eaf3ec83fc6"
+  url "https://github.com/jqnatividad/qsv/archive/refs/tags/0.92.0.tar.gz"
+  sha256 "ecb9c1241eef50b1b7f732b91880d2e1585b6c690d3825c39900a03da1d1ef24"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/jqnatividad/qsv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ceaf74479aca8e81cfc7530358dc2d9e46b8f1d940b6e782b204acdbfd35576c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "89b298d28d1fd0b9bb1e7e5e11a355fff5e4ed71a2b1f64a638dbd2ce468cfea"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fefed2a96eb76d2a9aa3706f1559cdf34dfdc23bea4ef0a7cc85eef2df969fca"
-    sha256 cellar: :any_skip_relocation, ventura:        "d0e0bcc9b4d53c9cb5b86f0d05d04aec02af103c60adecadf5fb0ec1988abc6c"
-    sha256 cellar: :any_skip_relocation, monterey:       "99cd393b3e136915353ed115c23ef15a4114ba5773d1478bfd198df0aa6c7eaf"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d54f68030ad42732f8a2a3a94a98d0ac2b32dc373231bff0cf454980f1104bdc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b22c4696de281d175539ed150f14293c89a4cb778584254b35765f4123762bf8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "36414727991f21961d4f9defc516ab2cf844517bcfba444a7c39c911b95984f4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "47d9a69158b88acc61921efb475d9c9db3647c5dcb81f6a053a20cd2af7d3413"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "844dbbd485945a0ba2e350296747a105bb8c9f8ccc57bd3cd0fefebe68b1cc31"
+    sha256 cellar: :any_skip_relocation, ventura:        "58b08734f9d816805027b5f19f8caf2a7d5c5d87949fc90353f11faf953b5b62"
+    sha256 cellar: :any_skip_relocation, monterey:       "18806ac21231142905af63a9b6727bf76c76bf3e31927f7f95661184775a1c1e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7bc5a30eec9863dfcc87afabee1bb39bcef4109eb1a0ed2c25bcbb6494367293"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1f2e3c554d0e705125601559650d36a77baae0f6dd46bcfba8f1063318c0c40"
   end
 
   depends_on "rust" => :build
@@ -26,8 +26,8 @@ class Qsv < Formula
     (testpath/"test.csv").write("first header,second header")
     assert_equal <<~EOS, shell_output("#{bin}/qsv stats test.csv")
       field,type,sum,min,max,range,min_length,max_length,mean,stddev,variance,nullcount,sparsity
-      first header,NULL,,,,,,,,,,0,"Failed to convert to decimal ""NaN"""
-      second header,NULL,,,,,,,,,,0,"Failed to convert to decimal ""NaN"""
+      first header,NULL,,,,,,,,,,0,
+      second header,NULL,,,,,,,,,,0,
     EOS
   end
 end
