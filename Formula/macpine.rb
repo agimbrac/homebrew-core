@@ -21,13 +21,14 @@ class Macpine < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4e1da6b8f34a22fc5fc63ba08b7bfac98e49810dc48480eb02d482e58027faff"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "31fdc359d83fed29fe4dd9d31c0a2e47c847d24769fedee8830b2387ee095422"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86804d74a4c347c33f10d281e0194d4847a74c5b9995ceaa3f3eec8e4305b0c7"
-    sha256 cellar: :any_skip_relocation, ventura:        "d6436309f60f3f0b4280a4fd4d1d78ab7cda32377815958d868f0e09cd750717"
-    sha256 cellar: :any_skip_relocation, monterey:       "b73b6106d67192cbcaaefdd79dc4e7600e0898ca02ab500be56acf525880b14c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cdd5fd51572c843ac660d140a6c48f229e90b531cb1ad169e448781d6b2a0d78"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f18fb694cde179cafbffe3b48f2bcee4f89b2604aa44ce43557b757433403987"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "df84e98cc98f316b8fc2ac8850cfd05048bcce9decb5c6fbb15cbf97f04fe520"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8bb9051ac566113476a2e3386f9417bfa0b11f263332476b0f70a0116862baa9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b0d9dacd246f201cf51fe9033be7032d2485430ede7b41edb58923acbd2a03f8"
+    sha256 cellar: :any_skip_relocation, ventura:        "9662303141c80aeb07bc28821701c8a8d88121dd3a0771d531ce3991fcc656f2"
+    sha256 cellar: :any_skip_relocation, monterey:       "761d4a26cd28778a902f5687c50173490027b6d94c172d732e5d850eac32795d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c3d1ae59c1b3ddb9c7d69beaeea2fb5060cea9e8e6f87e3baa26d938a171838d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e8e56a36cb50a31021a405272ed01dff9aeb8cab3d16956291b80ee382673b5"
   end
 
   depends_on "go" => :build
@@ -37,6 +38,7 @@ class Macpine < Formula
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
+    generate_completions_from_executable(bin/"alpine", "completion", base_name: "alpine")
   end
 
   test do
